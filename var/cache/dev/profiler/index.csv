@@ -1,0 +1,4 @@
+d2c555,127.0.0.1,GET,http://127.0.0.1:8000/app_dev.php/api,1501153921,,401
+a853b7,127.0.0.1,GET,http://127.0.0.1:8000/oauth/v2/token,1501154541,,400
+2ab7f2,127.0.0.1,GET,http://127.0.0.1:8000/app_dev.php/api,1501155755,,401
+eae04a,127.0.0.1,POST,http://autocrm.loc/app_dev.php/api/get,1501157078,,200
