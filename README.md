@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Symfony Standard Edition
 ========================
 
@@ -74,4 +74,4 @@ Enjoy!
 =======
 # autocrm
 Test for ER-Telecom company
->>>>>>> 5b0ff43c9e3ffd04d42b6083b4505135748b4f7f
+
