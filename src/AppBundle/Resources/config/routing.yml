@@ -1,0 +1,4 @@
+api:
+  type: rest
+  resource: "@AppBundle/Controller/ApiController.php"
+#  prefix: /v1

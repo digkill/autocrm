@@ -1,0 +1,4 @@
+cars:
+    type: rest
+    resource: AppBundle\Controller\CarsController
+    prefix:   /v1

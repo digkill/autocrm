@@ -3,16 +3,15 @@
 namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations;
 
 /**
- * Class ApiController
+ * Class CarsController
  * @package AppBundle\Controller
- * @Annotations\RouteResource("api")
+ * @Annotations\RouteResource("cars")
  */
-class ApiController extends FOSRestController implements ClassResourceInterface
+class CarsController extends FOSRestController implements ClassResourceInterface
 {
     public function indexAction()
     {
@@ -27,4 +26,5 @@ class ApiController extends FOSRestController implements ClassResourceInterface
         $view = $this->view($data);
         return $this->handleView($view);
     }
+
 }

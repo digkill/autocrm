@@ -33,3 +33,10 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    # -- HANDLER --
+    crv.handler.restricted_user_handler:
+        class: AppBundle\Handler\CarHandler
+        arguments:
+            - "@crv.form.handler.restricted_car_form_handler"
+            - "@crv.repository.restricted_car_repository"

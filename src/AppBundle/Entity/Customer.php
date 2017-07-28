@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ *
+ * @ORM\Table("customer")
+ * @ORM\Entity
+ */
+class Customer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="fio",type="string",length=60)
+     * @var string
+     */
+    protected $fio;
+
+    /**
+     * @ORM\Column(name="passport_number",type="string",length=60)
+     * @var string
+     */
+    protected $passportNumber;
+
+    /**
+     * @ORM\Column(name="license_number",type="string",length=60)
+     * @var string
+     */
+    protected $licenseNumber;
+
+    /**
+     * @ORM\Column(name="address",type="string",length=255)
+     * @var string
+     */
+    protected $address;
+
+    /**
+     * @ORM\Column(name="phone",type="string",length=20)
+     * @var string
+     */
+    protected $phone;
+}

@@ -1,19 +1,43 @@
-nelmio_api_doc: ~
+# Nelmio API Doc
+nelmio_api_doc:
+    sandbox:
+        accept_type:        "application/json"
+        body_format:
+            formats:        [ "json" ]
+            default_format: "json"
+        request_format:
+            formats:
+                json:       "application/json"
 
+# FOS REST Bundle
 fos_rest:
+    body_listener: true
+    format_listener:  true
+    param_fetcher_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            jsonp: true
+            json: true
+            xml: false
+            rss: false
+        mime_types:
+            json: ['application/json', 'application/x-json']
+            jpg: 'image/jpeg'
+            png: 'image/png'
+        jsonp_handler: ~
     routing_loader:
-        default_format: json                            # All responses should be JSON formated
-        include_format: false                           # We do not include format in request, so that all responses
-                                                        # will eventually be JSON formated
+        default_format:  json
+        include_format:  false
     format_listener:
         rules:
-            - { priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
-    view:
-        view_response_listener: true
+            - { path: ^/, priorities: [ json, jsonp ], fallback_format: ~, prefer_extension: true }
+    exception:
+        enabled: true
 
 fos_user:
     db_driver: orm
-    firewall_name: api                                  # Seems to be used when registering user/reseting password,
+    firewall_name: api                                 # Seems to be used when registering user/reseting password,
                                                         # but since there is no "login", as so it seems to be useless in
                                                         # our particular context, but still required by "FOSUserBundle"
     user_class: AppBundle\Entity\User
