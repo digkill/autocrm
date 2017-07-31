@@ -386,8 +386,8 @@ class MainConfiguration implements ConfigurationInterface
             ->children()
                 ->arrayNode('encoders')
                     ->example(array(
-                        'AppBundle\Entity\User1' => 'bcrypt',
-                        'AppBundle\Entity\User2' => array(
+                        'ApiBundle\Entity\User1' => 'bcrypt',
+                        'ApiBundle\Entity\User2' => array(
                             'algorithm' => 'bcrypt',
                             'cost' => 13,
                         ),

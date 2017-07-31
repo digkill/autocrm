@@ -21,6 +21,10 @@ angular.module('myApp.hire', ['ngRoute'])
                 templateUrl: '/js/app/car/car.html',
                 controller: 'carController'
             })
+            .when('/avg', {
+                templateUrl: '/js/app/avg/avg.html',
+                controller: 'avgController'
+            })
         ;
 
     }]);

@@ -55,7 +55,7 @@ class ConfigurationManipulatorTest extends \PHPUnit_Framework_TestCase
 
         // normal, .yml file
         $tests[] = array(
-            'AppBundle',
+            'ApiBundle',
             'yml',
             <<<EOF
 imports:
@@ -71,7 +71,7 @@ imports:
     - { resource: security.yml }
     - { resource: parameters.yml }
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/services.yml" }
+    - { resource: "@ApiBundle/Resources/config/services.yml" }
 framework:
     esi:             { enabled: true }
     translator:      { fallback: en }
@@ -80,7 +80,7 @@ EOF
 
         // normal, xml file
         $tests[] = array(
-            'AppBundle',
+            'ApiBundle',
             'xml',
             <<<EOF
 imports:
@@ -96,7 +96,7 @@ imports:
     - { resource: security.yml }
     - { resource: parameters.yml }
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/services.xml" }
+    - { resource: "@ApiBundle/Resources/config/services.xml" }
 framework:
     esi:             { enabled: true }
     translator:      { fallback: en }
@@ -105,7 +105,7 @@ EOF
 
         // imports further down
         $tests[] = array(
-            'AppBundle',
+            'ApiBundle',
             'yml',
             <<<EOF
 framework:
@@ -130,7 +130,7 @@ imports:
     - { resource: security.yml }
     - { resource: parameters.yml }
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/services.yml" }
+    - { resource: "@ApiBundle/Resources/config/services.yml" }
 
 twig:
     debug:            "%kernel.debug%"
@@ -140,7 +140,7 @@ EOF
 
         // extra line breaks in the imports list
         $tests[] = array(
-            'AppBundle',
+            'ApiBundle',
             'yml',
             <<<EOF
 imports:
@@ -160,7 +160,7 @@ imports:
     - { resource: parameters.yml }
 
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/services.yml" }
+    - { resource: "@ApiBundle/Resources/config/services.yml" }
 
 
 framework:

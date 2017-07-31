@@ -93,7 +93,7 @@ class ComposerStaticInite193d4f603712b28a9b0e19204feb247
         ),
         'A' => 
         array (
-            'AppBundle\\' => 10,
+            'ApiBundle\\' => 10,
         ),
     );
 
@@ -254,9 +254,9 @@ class ComposerStaticInite193d4f603712b28a9b0e19204feb247
         array (
             0 => __DIR__ . '/../..' . '/src/CRMBundle',
         ),
-        'AppBundle\\' => 
+        'ApiBundle\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/AppBundle',
+            0 => __DIR__ . '/../..' . '/src/ApiBundle',
         ),
     );
 

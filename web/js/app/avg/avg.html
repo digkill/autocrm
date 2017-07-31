@@ -1,0 +1,39 @@
+<h1>Какова средняя продолжительность проката автомобиля каждой марки по
+    каждой точке?</h1>
+
+<div class="row">
+    <div class="col-xs-4">
+        <h3>Страница: {{ currentPage }}</h3>
+    </div>
+</div>
+<br>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <table class="table table-hover table-responsive">
+            <thead>
+            <tr>
+                <th>Станция</th>
+                <th>Марка авто</th>
+                <th>Среднее время в прокате</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr dir-paginate="hire in hires | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                <td>{{ hire.pointName }}</td>
+
+                <td>{{ hire.markName }}</td>
+
+                <td>{{ hire.avgTime }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="text-center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"
+                             template-url="/js/app/components/mrPagination/dirPagination.tpl.html"></dir-pagination-controls>
+</div>
+<a href="#!list" class="btn btn-lg btn-success">Назад</a>

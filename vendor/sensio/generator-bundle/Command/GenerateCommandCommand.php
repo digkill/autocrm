@@ -43,7 +43,7 @@ The <info>%command.name%</info> command helps you generate new commands
 inside bundles. Provide the bundle name as the first argument and the command
 name as the second argument:
 
-<info>php %command.full_name% AppBundle blog:publish-posts</info>
+<info>php %command.full_name% ApiBundle blog:publish-posts</info>
 
 If any of the arguments is missing, the command will ask for their values
 interactively. If you want to disable any user interaction, use
@@ -81,7 +81,7 @@ EOT
             $output->writeln(array(
                 '',
                 'First, you need to give the name of the bundle where the command will',
-                'be generated (e.g. <comment>AppBundle</comment>)',
+                'be generated (e.g. <comment>ApiBundle</comment>)',
                 '',
             ));
 

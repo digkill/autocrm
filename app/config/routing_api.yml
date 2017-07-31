@@ -1,38 +1,38 @@
-app_hire:
+api_hire:
   type: rest
-  resource: AppBundle\Controller\HireController
+  resource: ApiBundle\Controller\HireController
   prefix:   /v1
 
-app_car:
+api_car:
   type: rest
-  resource: AppBundle\Controller\CarController
+  resource: ApiBundle\Controller\CarController
   prefix:   /v1
 
-app_customer:
+api_customer:
   type: rest
-  resource: AppBundle\Controller\CustomerController
+  resource: ApiBundle\Controller\CustomerController
   prefix:   /v1
 
-app_mark:
+api_mark:
   type: rest
-  resource: AppBundle\Controller\MarkController
+  resource: ApiBundle\Controller\MarkController
   prefix:   /v1
 
-app_point:
+api_point:
   type: rest
-  resource: AppBundle\Controller\PointController
+  resource: ApiBundle\Controller\PointController
   prefix:   /v1
 
-app_post:
+api_post:
   type: rest
-  resource: AppBundle\Controller\PostController
+  resource: ApiBundle\Controller\PostController
   prefix:   /v1
 
-app_rate:
-  resource: AppBundle\Controller\RateController
+api_rate:
+  resource: ApiBundle\Controller\RateController
   prefix:   /v1
 
-app_worker:
+api_worker:
   type: rest
-  resource: AppBundle\Controller\WorkerController
+  resource: ApiBundle\Controller\WorkerController
   prefix:   /v1

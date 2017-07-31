@@ -4,9 +4,9 @@ namespace CRMBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Form\Type\HireType;
+use ApiBundle\Form\Type\HireType;
 
-use AppBundle\Entity\Hire;
+use ApiBundle\Entity\Hire;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

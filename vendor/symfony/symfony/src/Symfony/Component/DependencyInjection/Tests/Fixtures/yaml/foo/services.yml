@@ -1,4 +1,4 @@
 services:
     AppBundle\Hello:
         arguments:
-            - !service {class: AppBundle\World}
+            - !service {class: ApiBundle\World}

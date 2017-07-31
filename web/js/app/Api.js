@@ -32,13 +32,19 @@ angular.module('myApp.hire')
                 return $http.get(ROOT_URL + '/' + entity + 's/' + id + '/by/car');
             }
 
+            function markAvgPoint(entity) {
+                return $http.get(ROOT_URL + '/' + entity + 's/avgs/points/mark');
+            }
+
+
             return {
                 get: get,
                 getAll: getAll,
                 post: post,
                 put: put,
                 remove: remove,
-                getCarById: getCarById
+                getCarById: getCarById,
+                markAvgPoint: markAvgPoint
             }
 
         }
