@@ -1,0 +1,85 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Hire
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HireRepository")
+ * @ORM\Table(name="hire")
+ */
+class Hire
+{
+    const STATUS_NEW = 0;
+    const STATUS_PAID = 1;
+    const STATUS_TAKEN = 2;
+    const STATUS_RETURNED = 3;
+    const STATUS_CANCELED = 4;
+    const STATUS_ERROR = 5;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Car")
+     * @var Car
+     */
+    protected $car;
+
+    /**
+     * @ORM\Column(name="start_date", type="datetime")
+     * @var \DateTime
+     */
+    protected $startDate;
+
+    /**
+     * @ORM\Column(name="end_date", type="datetime")
+     * @var \DateTime
+     */
+    protected $endDate;
+
+    /**
+     * @ORM\Column(name="return_date", type="datetime")
+     * @var \DateTime
+     */
+    protected $returnDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Point")
+     * @var Point
+     */
+    protected $point;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer")
+     * @var Customer
+     */
+    protected $customer;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Worker")
+     * @var Worker
+     */
+    protected $worker;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    protected $status = self::STATUS_NEW;
+
+
+    public function __construct()
+    {
+        $this->startDate = new \DateTime();
+    }
+
+}

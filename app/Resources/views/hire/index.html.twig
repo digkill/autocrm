@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hires list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Returndate</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hire in hires %}
+            <tr>
+                <td><a href="{{ path('hire_show', { 'id': hire.id }) }}">{{ hire.id }}</a></td>
+                <td>{% if hire.startDate %}{{ hire.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if hire.endDate %}{{ hire.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if hire.returnDate %}{{ hire.returnDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ hire.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('hire_show', { 'id': hire.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('hire_edit', { 'id': hire.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hire_new') }}">Create a new hire</a>
+        </li>
+    </ul>
+{% endblock %}

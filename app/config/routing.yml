@@ -1,6 +1,6 @@
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
+crm:
+    resource: "@CRMBundle/Resources/config/routing.yml"
+    prefix:   /
 
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
@@ -9,3 +9,4 @@ api:
     type: rest
     resource: "routing_api.yml"
     prefix:   /api
+

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6
+class ComposerStaticInite193d4f603712b28a9b0e19204feb247
 {
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
@@ -89,6 +89,7 @@ class ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6
         'C' => 
         array (
             'Composer\\CaBundle\\' => 18,
+            'CRMBundle\\' => 10,
         ),
         'A' => 
         array (
@@ -249,6 +250,10 @@ class ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6
         array (
             0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
+        'CRMBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/CRMBundle',
+        ),
         'AppBundle\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/AppBundle',
@@ -281,19 +286,8 @@ class ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6
                 0 => __DIR__ . '/..' . '/phpcollection/phpcollection/src',
             ),
         ),
-        'N' => 
-        array (
-            'Nelmio\\ApiDocBundle' => 
-            array (
-                0 => __DIR__ . '/..' . '/nelmio/api-doc-bundle',
-            ),
-        ),
         'M' => 
         array (
-            'Michelf' => 
-            array (
-                0 => __DIR__ . '/..' . '/michelf/php-markdown',
-            ),
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
@@ -362,10 +356,10 @@ class ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitac0bd829dad10d366da3b8f3db3512f6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite193d4f603712b28a9b0e19204feb247::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite193d4f603712b28a9b0e19204feb247::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite193d4f603712b28a9b0e19204feb247::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInite193d4f603712b28a9b0e19204feb247::$classMap;
 
         }, null, ClassLoader::class);
     }

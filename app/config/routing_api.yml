@@ -1,4 +1,38 @@
-cars:
-    type: rest
-    resource: AppBundle\Controller\CarsController
-    prefix:   /v1
+app_hire:
+  type: rest
+  resource: AppBundle\Controller\HireController
+  prefix:   /v1
+
+app_car:
+  type: rest
+  resource: AppBundle\Controller\CarController
+  prefix:   /v1
+
+app_customer:
+  type: rest
+  resource: AppBundle\Controller\CustomerController
+  prefix:   /v1
+
+app_mark:
+  type: rest
+  resource: AppBundle\Controller\MarkController
+  prefix:   /v1
+
+app_point:
+  type: rest
+  resource: AppBundle\Controller\PointController
+  prefix:   /v1
+
+app_post:
+  type: rest
+  resource: AppBundle\Controller\PostController
+  prefix:   /v1
+
+app_rate:
+  resource: AppBundle\Controller\RateController
+  prefix:   /v1
+
+app_worker:
+  type: rest
+  resource: AppBundle\Controller\WorkerController
+  prefix:   /v1

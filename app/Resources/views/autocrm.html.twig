@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+
+        <link rel="stylesheet" href="/js/app/bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="/js/app/bower_components/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="/js/app/app.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+              integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+              crossorigin="anonymous">
+
+
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    <script src="bower_components/angular/angular.js"></script>
+
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+
+
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <script src="Api.js"></script>
+    <script src="list/listController.js"></script>
+    <script src="create/createController.js"></script>
+    <script src="update/updateController.js"></script>
+    <script src="car/carController.js"></script>
+{% endblock %}
+</body>
+</html>

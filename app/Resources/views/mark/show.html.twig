@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mark</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mark.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mark.name }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ mark.class }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ mark.model }}</td>
+            </tr>
+            <tr>
+                <th>Places</th>
+                <td>{{ mark.places }}</td>
+            </tr>
+            <tr>
+                <th>Yearofissue</th>
+                <td>{{ mark.yearOfIssue }}</td>
+            </tr>
+            <tr>
+                <th>Enginecapacity</th>
+                <td>{{ mark.engineCapacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mark_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mark_edit', { 'id': mark.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

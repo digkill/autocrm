@@ -1,0 +1,24 @@
+hire_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Hire:index" }
+    methods:  GET
+
+hire_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Hire:show" }
+    methods:  GET
+
+hire_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Hire:new" }
+    methods:  [GET, POST]
+
+hire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Hire:edit" }
+    methods:  [GET, POST]
+
+hire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Hire:delete" }
+    methods:  DELETE

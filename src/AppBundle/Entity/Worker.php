@@ -17,12 +17,18 @@ class Worker
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
-     * @ORM\Column(name="post",type="string",length=60)
+     * @ORM\Column(name="name",type="string",length=60)
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Post")
      * @var Post
      */
     protected $post;
@@ -33,11 +39,86 @@ class Worker
      */
     protected $salary;
 
+
     /**
-     * @ORM\Column(name="department", type="integer")
-     * @var Department
+     * Get id
+     *
+     * @return integer
      */
-    protected $department;
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Worker
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
 
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set salary
+     *
+     * @param integer $salary
+     *
+     * @return Worker
+     */
+    public function setSalary($salary)
+    {
+        $this->salary = $salary;
+
+        return $this;
+    }
+
+    /**
+     * Get salary
+     *
+     * @return integer
+     */
+    public function getSalary()
+    {
+        return $this->salary;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \AppBundle\Entity\Post $post
+     *
+     * @return Worker
+     */
+    public function setPost(\AppBundle\Entity\Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \AppBundle\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
 }

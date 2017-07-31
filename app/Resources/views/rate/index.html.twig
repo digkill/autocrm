@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rate in rates %}
+            <tr>
+                <td><a href="{{ path('rate_show', { 'id': rate.id }) }}">{{ rate.id }}</a></td>
+                <td>{{ rate.cost }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rate_show', { 'id': rate.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rate_edit', { 'id': rate.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rate_new') }}">Create a new rate</a>
+        </li>
+    </ul>
+{% endblock %}
