@@ -68,20 +68,20 @@ class Hire
      * @ORM\Column(type="integer")
      * @var int
      */
-    protected $status = self::STATUS_NEW;
-
+    protected $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Rate")
-     * @var Rate
+     * @ORM\Column(name="cost", type="integer")
+     * @var int
      */
-    protected $rate;
+    protected $cost;
+
 
     public function __construct()
     {
         $this->startDate = new \DateTime();
+        $this->status = self::STATUS_NEW;
     }
-
 
     /**
      * Get id
@@ -141,29 +141,6 @@ class Hire
         return $this->endDate;
     }
 
-    /**
-     * Set returnDate
-     *
-     * @param \DateTime $returnDate
-     *
-     * @return Hire
-     */
-    public function setReturnDate($returnDate)
-    {
-        $this->returnDate = $returnDate;
-
-        return $this;
-    }
-
-    /**
-     * Get returnDate
-     *
-     * @return \DateTime
-     */
-    public function getReturnDate()
-    {
-        return $this->returnDate;
-    }
 
     /**
      * Set status
@@ -286,26 +263,27 @@ class Hire
     }
 
     /**
-     * Set rate
+     * Set cost
      *
-     * @param \ApiBundle\Entity\Rate $rate
+     * @param integer $cost
      *
      * @return Hire
      */
-    public function setRate(\ApiBundle\Entity\Rate $rate = null)
+    public function setCost($cost)
     {
-        $this->rate = $rate;
+        $this->cost = $cost;
 
         return $this;
     }
 
     /**
-     * Get rate
+     * Get cost
      *
-     * @return \ApiBundle\Entity\Rate
+     * @return integer
      */
-    public function getRate()
+    public function getCost()
     {
-        return $this->rate;
+        return $this->cost;
     }
+
 }

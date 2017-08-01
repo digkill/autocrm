@@ -6,33 +6,48 @@
             <label class="col-sm-2 control-label required">Автомобиль:</label>
 
             <div class="col-sm-10">
-                <select name="singleSelect" class="form-control" ng-model="hire.car">
-                    <option ng-repeat="entity in data.cars" value="{{entity.id}}">{{entity.number}} --
-                        {{entity.mark.name}} -- {{entity.mark.class}}
+                <select class="form-control" ng-model="hire.car">
+
+                    <option ng-selected="{{ entity.id == hire.car.id }}"
+                            ng-repeat="entity in data.cars"
+                            value="{{entity.id}}">
+                        {{entity.mark.name}} - {{entity.number}}
                     </option>
+
+
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-        <label class="col-sm-2 control-label required">Станция:</label>
+            <label class="col-sm-2 control-label required">Станция:</label>
 
-        <div class="col-sm-10">
-            <select name="singleSelect" class="form-control" ng-model="hire.point">
-                <option ng-repeat="entity in data.points" value="{{entity.id}}">{{entity.name}} --
-                    {{entity.address}}
-                </option>
-            </select>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="hire.point">
+
+                    <option ng-selected="{{ entity.id == hire.point.id }}"
+                            ng-repeat="entity in data.points"
+                            value="{{entity.id}}">
+                        {{entity.name}}
+                    </option>
+
+
+                </select>
+            </div>
         </div>
-    </div>
 
 
         <div class="form-group">
             <label class="col-sm-2 control-label required">Покупатель:</label>
 
             <div class="col-sm-10">
-                <select name="singleSelect" class="form-control" ng-model="hire.customer">
-                    <option ng-repeat="entity in data.customers" value="{{entity.id}}">{{entity.name}}</option>
+                <select class="form-control" ng-model="hire.customer">
+
+                    <option ng-selected="{{ entity.id == hire.customer.id }}"
+                            ng-repeat="entity in data.customers"
+                            value="{{entity.id}}">
+                        {{entity.name}}
+                    </option>
                 </select>
             </div>
         </div>
@@ -41,16 +56,23 @@
             <label class="col-sm-2 control-label required">Менеджер:</label>
 
             <div class="col-sm-10">
-                <select name="singleSelect" class="form-control"    ng-model="hire.worker">
-                    <option ng-repeat="entity in data.workers" value="{{entity.id}}">{{entity.name}}</option>
+
+
+                <select  class="form-control" ng-model="hire.worker">
+
+                    <option ng-selected="{{ entity.id == hire.worker.id }}"
+                            ng-repeat="entity in data.workers"
+                            value="{{entity.id}}">
+                        {{entity.name}}
+                    </option>
                 </select>
             </div>
         </div>
 
-        <div class="form-group"><label class="col-sm-2 control-label required" for="hire_startDate">Start date</label>
+        <div class="form-group"><label class="col-sm-2 control-label required" >
+            Начало аренды:</label>
             <div class="col-sm-10">
                 <input type="text"
-                       id="hire_startDate"
                        ng-model="hire.startDate"
                        required="required"
                        class="form-control"/>
@@ -58,46 +80,38 @@
         </div>
 
 
-        <div class="form-group"><label class="col-sm-2 control-label required" for="hire_endDate">End date</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">Конец аренды:</label>
             <div class="col-sm-10">
                 <input type="text"
-                       id="hire_endDate"
+
                        ng-model="hire.endDate"
                        required="required"
                        class="form-control"/>
             </div>
         </div>
 
-        <div class="form-group"><label class="col-sm-2 control-label required" for="hire_returnDate">Return date</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label required" >Стоимость:</label>
             <div class="col-sm-10">
                 <input type="text"
-                       id="hire_returnDate"
-                       ng-model="hire.returnDate"
+
+                       ng-model="hire.cost"
                        required="required"
                        class="form-control"/>
             </div>
         </div>
 
-        <div class="form-group"><label class="col-sm-2 control-label required" for="hire_status">Status</label>
-            <div class="col-sm-10">
-                <input type="text"
-                       id="hire_status"
-                       ng-model="hire.status"
-                       required="required"
-                       class="form-control"
-                       value="1"/>
-            </div>
-        </div>
 
 
         <div class="form-group">
             <div class="col-sm-2"></div>
             <div class="col-sm-10">
                 <button type="submit"
-                        id="hire_submit"
+
                         ng-click="create(hire)"
                         class="btn-default btn">
-                    Submit
+                    Добавить запись
                 </button>
             </div>
         </div>

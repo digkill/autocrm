@@ -34,13 +34,17 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-
     api.hire_repository:
         class: ApiBundle\Repository\HireRepository
         factory: ["@doctrine.orm.default_entity_manager", getRepository]
         arguments: [ApiBundle\Entity\Hire]
 
+
     api.hire_controller:
          class: ApiBundle\Controller\HireController
          arguments:
             - '@api.hire_repository'
+#            - '@doctrine.orm.default_entity_manager'
+
+
+

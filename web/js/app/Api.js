@@ -21,11 +21,11 @@ angular.module('myApp.hire')
             }
 
             function put(entity, id, data) {
-                return $http.put(ROOT_URL + '/' + entity + '/' + id, data);
+                return $http.put(ROOT_URL + '/' + entity + 's/' + id, data);
             }
 
             function remove(entity, id) {
-                return $http.delete(ROOT_URL + '/' + entity + '/' + id);
+                return $http.delete(ROOT_URL + '/' + entity + 's/' + id);
             }
 
             function getCarById(entity, id) {

@@ -29,7 +29,6 @@
 
                     <th>Начало аренды</th>
                     <th>Конец аренды</th>
-                    <th>Когда вернули</th>
 
                     <th>Станция</th>
                     <th>Адрес</th>
@@ -52,11 +51,10 @@
                     <td>{{ hire.car.mark.name }}</td>
                     <td>{{ hire.car.mark.model }}</td>
                     <td>{{ hire.car.mark.class }}</td>
-                    <td>{{ hire.car.mark.yearOfIssue }}</td>
+                    <td>{{ hire.car.mark.year_of_issue }}</td>
 
-                    <td>{{ hire.startDate }}</td>
-                    <td>{{ hire.endDate }}</td>
-                    <td>{{ hire.returnDate }}</td>
+                    <td>{{ hire.start_date }}</td>
+                    <td>{{ hire.end_date }}</td>
 
                     <td>{{ hire.point.name }}</td>
                     <td>{{ hire.point.address }}</td>
@@ -65,11 +63,14 @@
                     <td>{{ hire.status }}</td>
                     <td>{{ hire.worker.name }}</td>
 
-                    <td>{{ hire.car.rate.cost }}</td>
+                    <td>{{ hire.cost }}</td>
 
                     <td>
-                        <a href="#!update/{{ hire.id }}" class="btn btn-default btn-sm">Edit</a>
-                        <a href="" ng-click="remove(hire.id)" class="btn btn-danger btn-sm">Delete</a>
+
+                            <a href="#!update/{{ hire.id }}" class="btn btn-default btn-sm">Редактировать</a>
+
+                            <a href="" ng-click="remove(hire.id )" class="btn btn-danger btn-sm">Удалить</a>
+
                     </td>
                 </tr>
 
@@ -87,4 +88,4 @@
     </div>
 
 
-<a href="#!create" class="btn btn-lg btn-success">Create</a>
+<a href="#!create" class="btn btn-lg btn-success">Создать запись аренды</a>

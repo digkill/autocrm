@@ -6,7 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
+use ApiBundle\Entity\Hire;
 
 class HireType extends AbstractType
 {
@@ -17,18 +19,26 @@ class HireType extends AbstractType
     {
         $builder->add('startDate', DateType::class,
             ['format' => 'dd.MM.yyyy',
-                'widget' => 'single_text',]
+                'widget' => 'single_text']
         )
             ->add('endDate', DateType::class,
                 ['format' => 'dd.MM.yyyy',
-                    'widget' => 'single_text',]
+                    'widget' => 'single_text']
             )
             ->add('returnDate', DateType::class,
                 ['format' => 'dd.MM.yyyy',
-                    'widget' => 'single_text',]
-            )->add('status')->add('car')->add('point')->add('customer')->add('worker');
+                    'widget' => 'single_text']
+            )->add('status',
+                IntegerType::class,
+                ['empty_data' => '1']
+            )
+            ->add('car')
+            ->add('point')
+            ->add('customer')
+            ->add('worker')
+            ->add('cost');
     }
-    
+
     /**
      * {@inheritdoc}
      */

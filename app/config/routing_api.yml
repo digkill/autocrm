@@ -28,10 +28,6 @@ api_post:
   resource: ApiBundle\Controller\PostController
   prefix:   /v1
 
-api_rate:
-  resource: ApiBundle\Controller\RateController
-  prefix:   /v1
-
 api_worker:
   type: rest
   resource: ApiBundle\Controller\WorkerController

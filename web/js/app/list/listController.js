@@ -24,13 +24,14 @@ angular.module('myApp.hire')
 
 
             $scope.remove = function (id) {
-                Api.remove(id)
+
+                var entity = 'hire';
+
+                Api.remove(entity, id)
                     .then(function (result) {
-                        console.log('result', result);
-                        $scope.hire = $filter('filter')($scope.hire, function (value, index, array) {
+                        $scope.hires = $filter('filter')($scope.hires, function (value, index, array) {
                             return value.id !== id;
                         });
-                        //$scope.blogPosts = result.data;
                     }, function (error) {
                         console.log('error', error);
                     });
