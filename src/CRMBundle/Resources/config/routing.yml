@@ -1,3 +1,31 @@
 crm_homepage:
     path:     /
     defaults: { _controller: CRMBundle:Default:index }
+
+crm_car:
+    resource: "@CRMBundle/Resources/config/routing/car.yml"
+    prefix:   /car
+
+crm_customer:
+    resource: "@CRMBundle/Resources/config/routing/customer.yml"
+    prefix:   /customer
+
+crm_hire:
+    resource: "@CRMBundle/Resources/config/routing/hire.yml"
+    prefix:   /hire
+
+crm_mark:
+    resource: "@CRMBundle/Resources/config/routing/mark.yml"
+    prefix:   /mark
+
+crm_point:
+    resource: "@CRMBundle/Resources/config/routing/point.yml"
+    prefix:   /point
+
+crm_post:
+    resource: "@CRMBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+crm_worker:
+    resource: "@CRMBundle/Resources/config/routing/worker.yml"
+    prefix:   /worker

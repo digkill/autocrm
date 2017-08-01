@@ -1,0 +1,44 @@
+<?php
+
+namespace CRMBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Car
+ *
+ * @ORM\Table(name="car", indexes={@ORM\Index(name="idx_773de69d4290f12b", columns={"mark_id"})})
+ * @ORM\Entity
+ */
+class Car
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=20, nullable=false)
+     */
+    private $number;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="car_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \CRMBundle\Entity\Mark
+     *
+     * @ORM\ManyToOne(targetEntity="CRMBundle\Entity\Mark")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="mark_id", referencedColumnName="id")
+     * })
+     */
+    private $mark;
+
+
+}
+

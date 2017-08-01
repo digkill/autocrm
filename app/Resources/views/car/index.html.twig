@@ -6,16 +6,16 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Number</th>
+                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for car in cars %}
             <tr>
-                <td><a href="{{ path('car_show', { 'id': car.id }) }}">{{ car.id }}</a></td>
-                <td>{{ car.number }}</td>
+                <td><a href="{{ path('car_show', { 'id': car.id }) }}">{{ car.number }}</a></td>
+                <td>{{ car.id }}</td>
                 <td>
                     <ul>
                         <li>

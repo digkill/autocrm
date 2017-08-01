@@ -6,22 +6,22 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Startdate</th>
                 <th>Enddate</th>
-                <th>Returndate</th>
                 <th>Status</th>
+                <th>Cost</th>
+                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for hire in hires %}
             <tr>
-                <td><a href="{{ path('hire_show', { 'id': hire.id }) }}">{{ hire.id }}</a></td>
-                <td>{% if hire.startDate %}{{ hire.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td><a href="{{ path('hire_show', { 'id': hire.id }) }}">{{ hire.startDate }}</a></td>
                 <td>{% if hire.endDate %}{{ hire.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if hire.returnDate %}{{ hire.returnDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ hire.status }}</td>
+                <td>{{ hire.cost }}</td>
+                <td>{{ hire.id }}</td>
                 <td>
                     <ul>
                         <li>

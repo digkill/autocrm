@@ -1,0 +1,95 @@
+<?php
+
+namespace CRMBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Hire
+ *
+ * @ORM\Table(name="hire", indexes={@ORM\Index(name="idx_b8017efcc3c6f69f", columns={"car_id"}), @ORM\Index(name="idx_b8017efcc028cea2", columns={"point_id"}), @ORM\Index(name="idx_b8017efc9395c3f3", columns={"customer_id"}), @ORM\Index(name="idx_b8017efc6b20ba36", columns={"worker_id"})})
+ * @ORM\Entity
+ */
+class Hire
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="datetime", nullable=false)
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="datetime", nullable=false)
+     */
+    private $endDate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cost", type="integer", nullable=false)
+     */
+    private $cost;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="hire_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \CRMBundle\Entity\Car
+     *
+     * @ORM\ManyToOne(targetEntity="CRMBundle\Entity\Car")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="car_id", referencedColumnName="id")
+     * })
+     */
+    private $car;
+
+    /**
+     * @var \CRMBundle\Entity\Point
+     *
+     * @ORM\ManyToOne(targetEntity="CRMBundle\Entity\Point")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="point_id", referencedColumnName="id")
+     * })
+     */
+    private $point;
+
+    /**
+     * @var \CRMBundle\Entity\Customer
+     *
+     * @ORM\ManyToOne(targetEntity="CRMBundle\Entity\Customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     * })
+     */
+    private $customer;
+
+    /**
+     * @var \CRMBundle\Entity\Worker
+     *
+     * @ORM\ManyToOne(targetEntity="CRMBundle\Entity\Worker")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="worker_id", referencedColumnName="id")
+     * })
+     */
+    private $worker;
+
+
+}
+

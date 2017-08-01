@@ -1,7 +1,3 @@
-crm:
-    resource: "@CRMBundle/Resources/config/routing.yml"
-    prefix:   /
-
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
 
@@ -10,3 +6,6 @@ api:
     resource: "routing_api.yml"
     prefix:   /api
 
+crm:
+    resource: "@CRMBundle/Resources/config/routing.yml"
+    prefix:   /crm

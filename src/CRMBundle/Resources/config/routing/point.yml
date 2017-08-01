@@ -1,0 +1,24 @@
+point_index:
+    path:     /
+    defaults: { _controller: "CRMBundle:Point:index" }
+    methods:  GET
+
+point_show:
+    path:     /{id}/show
+    defaults: { _controller: "CRMBundle:Point:show" }
+    methods:  GET
+
+point_new:
+    path:     /new
+    defaults: { _controller: "CRMBundle:Point:new" }
+    methods:  [GET, POST]
+
+point_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CRMBundle:Point:edit" }
+    methods:  [GET, POST]
+
+point_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CRMBundle:Point:delete" }
+    methods:  DELETE

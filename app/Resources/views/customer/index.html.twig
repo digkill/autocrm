@@ -6,24 +6,24 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Passportnumber</th>
                 <th>Licensenumber</th>
                 <th>Address</th>
                 <th>Phone</th>
+                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for customer in customers %}
             <tr>
-                <td><a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.id }}</a></td>
-                <td>{{ customer.name }}</td>
+                <td><a href="{{ path('customer_show', { 'id': customer.id }) }}">{{ customer.name }}</a></td>
                 <td>{{ customer.passportNumber }}</td>
                 <td>{{ customer.licenseNumber }}</td>
                 <td>{{ customer.address }}</td>
                 <td>{{ customer.phone }}</td>
+                <td>{{ customer.id }}</td>
                 <td>
                     <ul>
                         <li>

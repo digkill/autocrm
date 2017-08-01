@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CRMBundle\Entity\Hire" table="hire">
+    <indexes>
+      <index name="idx_b8017efcc3c6f69f" columns="car_id"/>
+      <index name="idx_b8017efcc028cea2" columns="point_id"/>
+      <index name="idx_b8017efc9395c3f3" columns="customer_id"/>
+      <index name="idx_b8017efc6b20ba36" columns="worker_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="hire_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <field name="startDate" type="datetime" column="start_date" nullable="false"/>
+    <field name="endDate" type="datetime" column="end_date" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="cost" type="integer" column="cost" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <many-to-one field="car" target-entity="Car" fetch="LAZY">
+      <join-columns>
+        <join-column name="car_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="point" target-entity="Point" fetch="LAZY">
+      <join-columns>
+        <join-column name="point_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customer" target-entity="Customer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="worker" target-entity="Worker" fetch="LAZY">
+      <join-columns>
+        <join-column name="worker_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

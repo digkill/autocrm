@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ hire.id }}</td>
-            </tr>
-            <tr>
                 <th>Startdate</th>
                 <td>{% if hire.startDate %}{{ hire.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
@@ -18,12 +14,16 @@
                 <td>{% if hire.endDate %}{{ hire.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Returndate</th>
-                <td>{% if hire.returnDate %}{{ hire.returnDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
                 <th>Status</th>
                 <td>{{ hire.status }}</td>
+            </tr>
+            <tr>
+                <th>Cost</th>
+                <td>{{ hire.cost }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ hire.id }}</td>
             </tr>
         </tbody>
     </table>

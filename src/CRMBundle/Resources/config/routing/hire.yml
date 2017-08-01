@@ -1,0 +1,24 @@
+hire_index:
+    path:     /
+    defaults: { _controller: "CRMBundle:Hire:index" }
+    methods:  GET
+
+hire_show:
+    path:     /{id}/show
+    defaults: { _controller: "CRMBundle:Hire:show" }
+    methods:  GET
+
+hire_new:
+    path:     /new
+    defaults: { _controller: "CRMBundle:Hire:new" }
+    methods:  [GET, POST]
+
+hire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CRMBundle:Hire:edit" }
+    methods:  [GET, POST]
+
+hire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CRMBundle:Hire:delete" }
+    methods:  DELETE

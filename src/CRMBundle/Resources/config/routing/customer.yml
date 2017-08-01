@@ -1,0 +1,24 @@
+customer_index:
+    path:     /
+    defaults: { _controller: "CRMBundle:Customer:index" }
+    methods:  GET
+
+customer_show:
+    path:     /{id}/show
+    defaults: { _controller: "CRMBundle:Customer:show" }
+    methods:  GET
+
+customer_new:
+    path:     /new
+    defaults: { _controller: "CRMBundle:Customer:new" }
+    methods:  [GET, POST]
+
+customer_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CRMBundle:Customer:edit" }
+    methods:  [GET, POST]
+
+customer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CRMBundle:Customer:delete" }
+    methods:  DELETE

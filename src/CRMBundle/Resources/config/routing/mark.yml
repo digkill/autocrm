@@ -1,0 +1,24 @@
+mark_index:
+    path:     /
+    defaults: { _controller: "CRMBundle:Mark:index" }
+    methods:  GET
+
+mark_show:
+    path:     /{id}/show
+    defaults: { _controller: "CRMBundle:Mark:show" }
+    methods:  GET
+
+mark_new:
+    path:     /new
+    defaults: { _controller: "CRMBundle:Mark:new" }
+    methods:  [GET, POST]
+
+mark_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CRMBundle:Mark:edit" }
+    methods:  [GET, POST]
+
+mark_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CRMBundle:Mark:delete" }
+    methods:  DELETE
