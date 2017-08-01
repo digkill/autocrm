@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.hire', ['ngRoute'])
+angular.module('myApp.hire', ['ngRoute', '720kb.datepicker'])
 
     .config(['$routeProvider', function($routeProvider) {
 
