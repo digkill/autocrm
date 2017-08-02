@@ -21,6 +21,9 @@ AutoCRM - Test for ER-Telecom company
 - MVC 
 итд
 
+NodeJs
+Bower
+
 Почему выбрал такие технологии
 ========================
 Выбрал Rest API для универсальности приложения,
