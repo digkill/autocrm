@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Customer;
+use ApiBundle\Entity\Customer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class CustomerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $customers = $em->getRepository('CRMBundle:Customer')->findAll();
+        $customers = $em->getRepository('ApiBundle:Customer')->findAll();
 
         return $this->render('customer/index.html.twig', array(
             'customers' => $customers,

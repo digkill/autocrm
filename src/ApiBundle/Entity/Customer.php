@@ -7,59 +7,57 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Customer
  *
- * @ORM\Table("customer")
+ * @ORM\Table(name="customer")
  * @ORM\Entity
  */
 class Customer
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=60, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="passport_number", type="string", length=60, nullable=false)
+     */
+    private $passportNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="license_number", type="string", length=60, nullable=false)
+     */
+    private $licenseNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=false)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=30, nullable=false)
+     */
+    private $phone;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="customer_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
-    /**
-     * @ORM\Column(name="name",type="string",length=60)
-     * @var string
-     */
-    protected $name;
 
-    /**
-     * @ORM\Column(name="passport_number",type="string",length=60)
-     * @var string
-     */
-    protected $passportNumber;
-
-    /**
-     * @ORM\Column(name="license_number",type="string",length=60)
-     * @var string
-     */
-    protected $licenseNumber;
-
-    /**
-     * @ORM\Column(name="address",type="string",length=255)
-     * @var string
-     */
-    protected $address;
-
-    /**
-     * @ORM\Column(name="phone",type="string",length=30)
-     * @var string
-     */
-    protected $phone;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -179,5 +177,15 @@ class Customer
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

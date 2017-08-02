@@ -22,7 +22,7 @@ class PostType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CRMBundle\Entity\Post'
+            'data_class' => 'ApiBundle\Entity\Post'
         ));
     }
 

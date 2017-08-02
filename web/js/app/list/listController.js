@@ -7,6 +7,8 @@ angular.module('myApp.hire')
 
             $scope.currentPage = 1;
             $scope.hires = [];
+            $scope.pageSize = 5;
+
 
             Api.getAll('hire')
                 .then(function (result) {
@@ -14,7 +16,8 @@ angular.module('myApp.hire')
 
                     $scope.hires = result.data.hires;
 
-                    $scope.pageSize = 5;
+
+
 
                     console.log($scope.hires);
 

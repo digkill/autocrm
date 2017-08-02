@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Hire
  *
+ * @ORM\Table(name="hire", indexes={@ORM\Index(name="idx_b8017efcc3c6f69f", columns={"car_id"}), @ORM\Index(name="idx_b8017efcc028cea2", columns={"point_id"}), @ORM\Index(name="idx_b8017efc9395c3f3", columns={"customer_id"}), @ORM\Index(name="idx_b8017efc6b20ba36", columns={"worker_id"})})
  * @ORM\Entity(repositoryClass="ApiBundle\Repository\HireRepository")
- * @ORM\Table(name="hire")
  */
 class Hire
 {
@@ -20,77 +20,88 @@ class Hire
     const STATUS_ERROR = 5;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="datetime", nullable=false)
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="datetime", nullable=false)
+     */
+    private $endDate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cost", type="integer", nullable=false)
+     */
+    private $cost;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="hire_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Car")
-     * @var Car
+     * @var \ApiBundle\Entity\Car
+     *
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Car")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="car_id", referencedColumnName="id")
+     * })
      */
-    protected $car;
+    private $car;
 
     /**
-     * @ORM\Column(name="start_date", type="datetime")
-     * @var \DateTime
+     * @var \ApiBundle\Entity\Point
+     *
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Point")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="point_id", referencedColumnName="id")
+     * })
      */
-    protected $startDate;
+    private $point;
 
     /**
-     * @ORM\Column(name="end_date", type="datetime")
-     * @var \DateTime
+     * @var \ApiBundle\Entity\Customer
+     *
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     * })
      */
-    protected $endDate;
+    private $customer;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Point")
-     * @var Point
+     * @var \ApiBundle\Entity\Worker
+     *
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Worker")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="worker_id", referencedColumnName="id")
+     * })
      */
-    protected $point;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Customer")
-     * @var Customer
-     */
-    protected $customer;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Worker")
-     * @var Worker
-     */
-    protected $worker;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    protected $status;
-
-    /**
-     * @ORM\Column(name="cost", type="integer")
-     * @var int
-     */
-    protected $cost;
+    private $worker;
 
 
     public function __construct()
     {
         $this->startDate = new \DateTime();
         $this->status = self::STATUS_NEW;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -141,7 +152,6 @@ class Hire
         return $this->endDate;
     }
 
-
     /**
      * Set status
      *
@@ -164,6 +174,40 @@ class Hire
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param integer $cost
+     *
+     * @return Hire
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return integer
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -261,29 +305,4 @@ class Hire
     {
         return $this->worker;
     }
-
-    /**
-     * Set cost
-     *
-     * @param integer $cost
-     *
-     * @return Hire
-     */
-    public function setCost($cost)
-    {
-        $this->cost = $cost;
-
-        return $this;
-    }
-
-    /**
-     * Get cost
-     *
-     * @return integer
-     */
-    public function getCost()
-    {
-        return $this->cost;
-    }
-
 }

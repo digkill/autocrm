@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Post;
+use ApiBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $posts = $em->getRepository('CRMBundle:Post')->findAll();
+        $posts = $em->getRepository('ApiBundle:Post')->findAll();
 
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,

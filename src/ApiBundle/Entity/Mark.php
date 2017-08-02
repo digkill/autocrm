@@ -5,67 +5,59 @@ namespace ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * Mark
  *
- * @ORM\Table("mark")
+ * @ORM\Table(name="mark")
  * @ORM\Entity
  */
 class Mark
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=60, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=60, nullable=false)
+     */
+    private $class;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=60, nullable=false)
+     */
+    private $model;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="places", type="integer", nullable=false)
+     */
+    private $places;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="year_of_issue", type="integer", nullable=false)
+     */
+    private $yearOfIssue;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mark_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
-    /**
-     * @ORM\Column(name="name",type="string",length=60)
-     * @var string
-     */
-    protected $name;
 
-    /**
-     * @ORM\Column(name="class",type="string",length=60)
-     * @var string
-     */
-    protected $class;
-
-    /**
-     * @ORM\Column(name="model",type="string",length=60)
-     * @var string
-     */
-    protected $model;
-
-    /**
-     * @ORM\Column(name="places",type="integer",length=11)
-     * @var integer
-     */
-    protected $places;
-
-    /**
-     * @ORM\Column(name="year_of_issue",type="integer",length=4)
-     * @var integer
-     */
-    protected $yearOfIssue;
-
-    /**
-     * @ORM\Column(name="engine_capacity", type="float")
-     * @var float
-     */
-    protected $engineCapacity;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -188,26 +180,12 @@ class Mark
     }
 
     /**
-     * Set engineCapacity
+     * Get id
      *
-     * @param float $engineCapacity
-     *
-     * @return Mark
+     * @return integer
      */
-    public function setEngineCapacity($engineCapacity)
+    public function getId()
     {
-        $this->engineCapacity = $engineCapacity;
-
-        return $this;
-    }
-
-    /**
-     * Get engineCapacity
-     *
-     * @return float
-     */
-    public function getEngineCapacity()
-    {
-        return $this->engineCapacity;
+        return $this->id;
     }
 }

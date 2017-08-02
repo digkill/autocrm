@@ -48,6 +48,8 @@ class UserPasswordEncoderCommand extends ContainerAwareCommand
 
     /**
      * {@inheritdoc}
+     *
+     * @deprecated since version 3.3, to be removed in 4.0
      */
     protected function getContainer()
     {
@@ -81,7 +83,7 @@ Suppose that you have the following security configuration in your application:
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        ApiBundle\Entity\User: bcrypt
+        AppBundle\Entity\User: bcrypt
 </comment>
 
 If you execute the command non-interactively, the first available configured
@@ -93,16 +95,16 @@ generated to encode the password:
 Pass the full user class path as the second argument to encode passwords for
 your own entities:
 
-  <info>php %command.full_name% --no-interaction [password] ApiBundle\Entity\User</info>
+  <info>php %command.full_name% --no-interaction [password] AppBundle\Entity\User</info>
 
 Executing the command interactively allows you to generate a random salt for
 encoding the password:
 
-  <info>php %command.full_name% [password] ApiBundle\Entity\User</info>
+  <info>php %command.full_name% [password] AppBundle\Entity\User</info>
 
 In case your encoder doesn't require a salt, add the <comment>empty-salt</comment> option:
 
-  <info>php %command.full_name% --empty-salt [password] ApiBundle\Entity\User</info>
+  <info>php %command.full_name% --empty-salt [password] AppBundle\Entity\User</info>
 
 EOF
             )

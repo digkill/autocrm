@@ -58,7 +58,7 @@
             <div class="col-sm-10">
 
 
-                <select  class="form-control" ng-model="hire.worker">
+                <select class="form-control" ng-model="hire.worker">
 
                     <option ng-selected="{{ entity.id == hire.worker.id }}"
                             ng-repeat="entity in data.workers"
@@ -69,35 +69,42 @@
             </div>
         </div>
 
-        <div class="form-group"><label class="col-sm-2 control-label required" >
-            Начало аренды:</label>
-            <div class="col-sm-10">
-                <input type="text"
-                       ng-model="hire.startDate"
-                       required="required"
-                       class="form-control"/>
-            </div>
-        </div>
-        <datepicker>
-            <input ng-model="date" type="text"/>
-        </datepicker>
-
         <div class="form-group">
-            <label class="col-sm-2 control-label required">Конец аренды:</label>
-            <div class="col-sm-10">
-                <input type="text"
+            <label class="col-sm-2 control-label required">Дата начала проката:</label>
 
-                       ng-model="hire.endDate"
-                       required="required"
-                       class="form-control"/>
+            <div class="col-sm-10">
+                <datepicker date-format="dd.MM.yyyy" selector="form-control ">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Дата начала проката" required="required"
+                               ng-model="hire.startDate">
+                        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+                    </div>
+                </datepicker>
             </div>
         </div>
 
 
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">Дата начала проката:</label>
+
+            <div class="col-sm-10">
+                <datepicker date-format="dd.MM.yyyy" selector="form-control ">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Дата конца аренды" required="required"
+                               ng-model="hire.endDate">
+                        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+                    </div>
+                </datepicker>
+            </div>
+        </div>
 
 
         <div class="form-group">
-            <label class="col-sm-2 control-label required" >Стоимость:</label>
+            <label class="col-sm-2 control-label required">Стоимость:</label>
             <div class="col-sm-10">
                 <input type="text"
 
@@ -106,7 +113,6 @@
                        class="form-control"/>
             </div>
         </div>
-
 
 
         <div class="form-group">

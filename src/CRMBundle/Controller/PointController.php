@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Point;
+use ApiBundle\Entity\Point;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class PointController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $points = $em->getRepository('CRMBundle:Point')->findAll();
+        $points = $em->getRepository('ApiBundle:Point')->findAll();
 
         return $this->render('point/index.html.twig', array(
             'points' => $points,

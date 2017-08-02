@@ -5,44 +5,41 @@ namespace ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * Car
  *
- * @ORM\Table("car")
+ * @ORM\Table(name="car", indexes={@ORM\Index(name="idx_773de69d4290f12b", columns={"mark_id"})})
  * @ORM\Entity
  */
 class Car
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=20, nullable=false)
+     */
+    private $number;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="car_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Mark")
-     * @var Mark
-     */
-    protected $mark;
-
-
-    /**
-     * @ORM\Column(name="number",type="string",length=20)
-     * @var string
-     */
-    protected $number;
-
-    /**
-     * Get id
+     * @var \ApiBundle\Entity\Mark
      *
-     * @return integer
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Mark")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="mark_id", referencedColumnName="id")
+     * })
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $mark;
+
+
 
     /**
      * Set number
@@ -69,6 +66,16 @@ class Car
     }
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set mark
      *
      * @param \ApiBundle\Entity\Mark $mark
@@ -91,6 +98,4 @@ class Car
     {
         return $this->mark;
     }
-
-
 }

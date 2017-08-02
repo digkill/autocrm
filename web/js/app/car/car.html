@@ -34,8 +34,13 @@
                 <td>{{ hire.id }}</td>
                 <td>{{ hire.car.mark.name }}</td>
 
-                <td>{{ hire.startDate }}</td>
-                <td>{{ hire.endDate }}</td>
+                <td>
+                    {{ hire.startDate| date:'dd.mm.yyyy'}}
+                </td>
+                <td>
+                    {{ hire.endDate| date:'dd.mm.yyyy'}}
+                </td>
+
                 <td>{{ hire.customer.name }}</td>
                 <td>{{ hire.car.number }}</td>
 

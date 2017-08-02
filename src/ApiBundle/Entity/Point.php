@@ -5,44 +5,38 @@ namespace ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * Point
  *
- * @ORM\Table("point")
+ * @ORM\Table(name="point")
  * @ORM\Entity
  */
 class Point
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=60, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=false)
+     */
+    private $address;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="point_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
-
-    /**
-     * @ORM\Column(name="name",type="string",length=60)
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @ORM\Column(name="address",type="string",length=255)
-     * @var string
-     */
-    protected $address;
+    private $id;
 
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -90,5 +84,15 @@ class Point
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

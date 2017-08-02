@@ -25,12 +25,12 @@ class ResolveControllerNameSubscriberTest extends TestCase
         $parser = $this->getMockBuilder(ControllerNameParser::class)->disableOriginalConstructor()->getMock();
         $parser->expects($this->any())
             ->method('parse')
-            ->with('ApiBundle:Starting:format')
+            ->with('AppBundle:Starting:format')
             ->willReturn('App\\Final\\Format::methodName');
         $httpKernel = $this->getMockBuilder(HttpKernelInterface::class)->getMock();
 
         $request = new Request();
-        $request->attributes->set('_controller', 'ApiBundle:Starting:format');
+        $request->attributes->set('_controller', 'AppBundle:Starting:format');
 
         $subscriber = new ResolveControllerNameSubscriber($parser);
         $subscriber->onKernelRequest(new GetResponseEvent($httpKernel, $request, HttpKernelInterface::MASTER_REQUEST));

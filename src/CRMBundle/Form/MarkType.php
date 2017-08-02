@@ -13,7 +13,7 @@ class MarkType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('class')->add('model')->add('places')->add('yearOfIssue')->add('engineCapacity');
+        $builder->add('name')->add('class')->add('model')->add('places')->add('yearOfIssue');
     }
     
     /**
@@ -22,7 +22,7 @@ class MarkType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CRMBundle\Entity\Mark'
+            'data_class' => 'ApiBundle\Entity\Mark'
         ));
     }
 

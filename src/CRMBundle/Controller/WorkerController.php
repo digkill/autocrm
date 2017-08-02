@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Worker;
+use ApiBundle\Entity\Worker;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class WorkerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $workers = $em->getRepository('CRMBundle:Worker')->findAll();
+        $workers = $em->getRepository('ApiBundle:Worker')->findAll();
 
         return $this->render('worker/index.html.twig', array(
             'workers' => $workers,

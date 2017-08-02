@@ -1,91 +1,93 @@
-    <h1>Журнал аренды автомобилей</h1>
+<h1>Журнал аренды автомобилей</h1>
 
 
-    <div class="row">
-        <div class="col-xs-4">
-            <h3>Страница: {{ currentPage }}</h3>
-        </div>
-        <div class="col-xs-8">
-            <label for="search">Поиск:</label>
-            <input ng-model="q" id="search" class="form-control" placeholder="Введите текст...">
-        </div>
-
+<div class="row">
+    <div class="col-xs-4">
+        <h3>Страница: {{ currentPage }}</h3>
     </div>
-    <br>
-    <div class="panel panel-default">
-        <div class="panel-body">
-
-
-            <table class="table table-hover table-responsive">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>№ автомобиля</th>
-
-                    <th>Марка</th>
-                    <th>Модель</th>
-                    <th>Класс</th>
-                    <th>Год выпуска</th>
-
-                    <th>Начало аренды</th>
-                    <th>Конец аренды</th>
-
-                    <th>Станция</th>
-                    <th>Адрес</th>
-
-                    <th>Статус</th>
-
-                    <th>Работник</th>
-
-                    <th>Стоимость</th>
-                </tr>
-                </thead>
-                <tbody>
-
-
-                <tr dir-paginate="hire in hires | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-                    <td>{{ hire.id }}</td>
-
-                    <td><a href="#!car/{{hire.car.id}}">{{ hire.car.number }}</a></td>
-
-                    <td>{{ hire.car.mark.name }}</td>
-                    <td>{{ hire.car.mark.model }}</td>
-                    <td>{{ hire.car.mark.class }}</td>
-                    <td>{{ hire.car.mark.year_of_issue }}</td>
-
-                    <td>{{ hire.start_date }}</td>
-                    <td>{{ hire.end_date }}</td>
-
-                    <td>{{ hire.point.name }}</td>
-                    <td>{{ hire.point.address }}</td>
-
-
-                    <td>{{ hire.status }}</td>
-                    <td>{{ hire.worker.name }}</td>
-
-                    <td>{{ hire.cost }}</td>
-
-                    <td>
-
-                            <a href="#!update/{{ hire.id }}" class="btn btn-default btn-sm">Редактировать</a>
-
-                            <a href="" ng-click="remove(hire.id )" class="btn btn-danger btn-sm">Удалить</a>
-
-                    </td>
-                </tr>
-
-
-                </tbody>
-            </table>
-
-
-        </div>
+    <div class="col-xs-8">
+        <label for="search">Поиск:</label>
+        <input ng-model="q" id="search" class="form-control" placeholder="Введите текст...">
     </div>
 
-    <div class="text-center">
-        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"
-                                 template-url="/js/app/components/mrPagination/dirPagination.tpl.html"></dir-pagination-controls>
+</div>
+<br>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+
+        <table class="table table-hover table-responsive">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>№ автомобиля</th>
+
+                <th>Марка</th>
+                <th>Модель</th>
+                <th>Класс</th>
+                <th>Год выпуска</th>
+
+                <th>Начало аренды</th>
+                <th>Конец аренды</th>
+
+                <th>Станция</th>
+                <th>Адрес</th>
+
+
+                <th>Работник</th>
+
+                <th>Стоимость</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <tr dir-paginate="hire in hires | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                <td>{{ hire.id }}</td>
+
+                <td><a href="#!car/{{hire.car.id}}">{{ hire.car.number }}</a></td>
+
+                <td>{{ hire.car.mark.name }}</td>
+                <td>{{ hire.car.mark.model }}</td>
+                <td>{{ hire.car.mark.class }}</td>
+                <td>{{ hire.car.mark.year_of_issue }}</td>
+
+                <td>
+                    {{ hire.start_date| date:'dd.mm.yyyy'}}
+                </td>
+                <td>
+                    {{ hire.end_date| date:'dd.mm.yyyy'}}
+                </td>
+
+                <td>{{ hire.point.name }}</td>
+                <td>{{ hire.point.address }}</td>
+
+
+                <td>{{ hire.worker.name }}</td>
+
+                <td> {{hire.cost / 100 | number: 2}}</td>
+
+                <td>
+
+                    <a href="#!update/{{ hire.id }}" class="btn btn-default btn-sm">Редактировать</a>
+
+                    <a href="" ng-click="remove(hire.id )" class="btn btn-danger btn-sm">Удалить</a>
+
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
     </div>
+</div>
+
+<div class="text-center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"
+                             template-url="/js/app/components/mrPagination/dirPagination.tpl.html"></dir-pagination-controls>
+</div>
 
 
 <a href="#!create" class="btn btn-lg btn-success">Создать запись аренды</a>

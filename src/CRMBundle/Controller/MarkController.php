@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Mark;
+use ApiBundle\Entity\Mark;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class MarkController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $marks = $em->getRepository('CRMBundle:Mark')->findAll();
+        $marks = $em->getRepository('ApiBundle:Mark')->findAll();
 
         return $this->render('mark/index.html.twig', array(
             'marks' => $marks,

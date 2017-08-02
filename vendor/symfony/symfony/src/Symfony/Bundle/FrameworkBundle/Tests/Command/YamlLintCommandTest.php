@@ -103,7 +103,7 @@ EOF;
     {
         $tester = $this->createCommandTester($this->getKernelAwareApplicationMock());
         $tester->execute(
-            array('filename' => '@ApiBundle/Resources'),
+            array('filename' => '@AppBundle/Resources'),
             array('verbosity' => OutputInterface::VERBOSITY_VERBOSE, 'decorated' => false)
         );
 
@@ -152,7 +152,7 @@ EOF;
         $kernel
             ->expects($this->once())
             ->method('locateResource')
-            ->with('@ApiBundle/Resources')
+            ->with('@AppBundle/Resources')
             ->willReturn(sys_get_temp_dir().'/yml-lint-test');
 
         $application = $this->getMockBuilder(Application::class)

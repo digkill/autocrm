@@ -9,3 +9,11 @@ api:
 crm:
     resource: "@CRMBundle/Resources/config/routing.yml"
     prefix:   /crm
+
+crm_homepage:
+    path:     /
+    defaults: { _controller: "CRMBundle:Default:index" }
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix: "/doc"

@@ -5,50 +5,48 @@ namespace ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * Worker
  *
- * @ORM\Table("worker")
+ * @ORM\Table(name="worker", indexes={@ORM\Index(name="idx_9fb2bf624b89032c", columns={"post_id"})})
  * @ORM\Entity
  */
 class Worker
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=60, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="salary", type="integer", nullable=false)
+     */
+    private $salary;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="worker_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(name="name",type="string",length=60)
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Post")
-     * @var Post
-     */
-    protected $post;
-
-    /**
-     * @ORM\Column(name="salary", type="integer")
-     * @var integer
-     */
-    protected $salary;
-
-
-    /**
-     * Get id
+     * @var \ApiBundle\Entity\Post
      *
-     * @return integer
+     * @ORM\ManyToOne(targetEntity="ApiBundle\Entity\Post")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     * })
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $post;
+
+
 
     /**
      * Set name
@@ -96,6 +94,16 @@ class Worker
     public function getSalary()
     {
         return $this->salary;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

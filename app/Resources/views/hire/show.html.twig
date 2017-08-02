@@ -19,7 +19,10 @@
             </tr>
             <tr>
                 <th>Cost</th>
-                <td>{{ hire.cost }}</td>
+                <td>
+
+                    {{hire.cost / 100 | number_format(2, '.', ' ')}}
+                </td>
             </tr>
             <tr>
                 <th>Id</th>

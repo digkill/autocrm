@@ -6,18 +6,20 @@
     <table>
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Salary</th>
-                <th>Id</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for worker in workers %}
             <tr>
-                <td><a href="{{ path('worker_show', { 'id': worker.id }) }}">{{ worker.name }}</a></td>
-                <td>{{ worker.salary }}</td>
                 <td>{{ worker.id }}</td>
+                <td><a href="{{ path('worker_show', { 'id': worker.id }) }}">{{ worker.name }}</a></td>
+                <td> {{worker.salary / 100 | number_format(2, '.', ' ')}}</td>
+
                 <td>
                     <ul>
                         <li>

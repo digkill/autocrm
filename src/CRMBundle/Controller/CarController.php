@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Car;
+use ApiBundle\Entity\Car;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class CarController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $cars = $em->getRepository('CRMBundle:Car')->findAll();
+        $cars = $em->getRepository('ApiBundle:Car')->findAll();
 
         return $this->render('car/index.html.twig', array(
             'cars' => $cars,

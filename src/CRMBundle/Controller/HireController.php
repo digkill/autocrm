@@ -2,7 +2,7 @@
 
 namespace CRMBundle\Controller;
 
-use CRMBundle\Entity\Hire;
+use ApiBundle\Entity\Hire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class HireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $hires = $em->getRepository('CRMBundle:Hire')->findAll();
+        $hires = $em->getRepository('ApiBundle:Hire')->findAll();
 
         return $this->render('hire/index.html.twig', array(
             'hires' => $hires,
