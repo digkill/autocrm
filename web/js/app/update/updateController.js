@@ -18,9 +18,6 @@ angular.module('myApp.hire')
                     console.log('response', response);
                     $scope.hire = response.data;
 
-
-
-
                     Api.getAll('point')
                         .then(function (result) {
                             $scope.data.points = result.data.points;
@@ -55,8 +52,6 @@ angular.module('myApp.hire')
 
 
             $scope.update = function (hire) {
-
-                console.log(hire);
 
                 Api.put('hire', hire.id, hire)
                     .then(function (response) {

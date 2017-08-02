@@ -11,7 +11,6 @@ angular.module('myApp.hire')
 
         };
 
-
         Api.getAll('car')
             .then(function (result) {
                 $scope.data.cars = result.data.cars;

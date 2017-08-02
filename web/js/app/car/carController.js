@@ -10,8 +10,6 @@ angular.module('myApp.hire')
             Api.getCarById('hire', $routeParams.id)
                 .then(function (result) {
 
-                    console.log(result.data.hires);
-
                     $scope.hires = result.data.hires;
                 }, function (error) {
                     console.log('error', error);

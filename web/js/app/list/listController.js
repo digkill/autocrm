@@ -12,14 +12,8 @@ angular.module('myApp.hire')
 
             Api.getAll('hire')
                 .then(function (result) {
-                    console.log('result', result);
 
                     $scope.hires = result.data.hires;
-
-
-
-
-                    console.log($scope.hires);
 
                 }, function (error) {
                     console.log('error', error);

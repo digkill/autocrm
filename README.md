@@ -19,7 +19,7 @@ AutoCRM - Test for ER-Telecom company
 
 - DIC
 - MVC 
-.итд
+итд
 
 Почему выбрал такие технологии
 ========================
