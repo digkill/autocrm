@@ -1,5 +1,15 @@
 nelmio_api_doc: ~
 
+guzzle:
+    # (de)activate logging/profiler; default: %kernel.debug%
+    logging: true
+
+    clients:
+        api_crm:
+            base_url: "http://autocrm.loc"
+            headers:
+                Accept: "application/json"
+
 # FOS REST Bundle
 fos_rest:
     body_listener: true
