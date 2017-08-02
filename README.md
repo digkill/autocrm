@@ -1,5 +1,5 @@
 
-AutoCRM
+AutoCRM - Test for ER-Telecom company
 ========================
 Используемые технологии:
 - Symfony 3
@@ -12,19 +12,12 @@ AutoCRM
 - Nginx 11.x
 - PHP-FPM 7.1.x
 
-
 ========================
 
 - БД в autocrm.sql и Структура DB DDL ddl_structure_autocrm.sql
 - Графическая схема Scheme.pdf
 
-========================
-
-# autocrm
-Test for ER-Telecom company
-
-# TODO
-
+TODO
 ========================
 
 - Доделать тесты
