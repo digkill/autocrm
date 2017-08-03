@@ -97,7 +97,7 @@ class HireController extends FOSRestController implements ClassResourceInterface
      *     input="ApiBundle\Form\HireType",
      *     output="ApiBundle\Entity\Hire,
      *     statusCodes={
-     *         201 = "Returned when a new BlogPost has been successful created",
+     *         201 = "Returned when a new Hire has been successful created",
      *         404 = "Return when not found"
      *     }
      * )

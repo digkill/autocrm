@@ -7,72 +7,108 @@ use GuzzleHttp\Client;
 
 class HireControllerTest extends WebTestCase
 {
+    const URL_API = 'http://autocrm.loc';
+
+    private $client;
+
+    public function setUp()
+    {
+        $this->client = new Client(['base_uri' => self::URL_API]);
+    }
+
     public function testGet()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-
-        $data = [];
-        $response = $client->request('GET', '/api/v1/hire', $data);
-
-        $this->assertEquals(200, $response);
+        $response = $this->client->request('GET', '/api/v1/hires');
+        $this->assertEquals(200, $response->getStatusCode());
+        $contentType = $response->getHeaders()["Content-Type"][0];
+        $this->assertEquals("application/json", $contentType);
     }
 
     public function testCGet()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('GET', '/api/v1/hires');
-
-        $this->assertEquals(200, $response);
+        $response = $this->client->request('GET', '/api/v1/hires/1');
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
 
     public function testPost()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('POST', '/api/v1/hires');
+        $data = ['json' => [
+            'id' => '1',
+            'startDate' => '01.09.2017',
+            'endDate' => '01.09.2017',
+            'status' => 0,
+            'cost' => 2800,
+            'car' => 1,
+            'point' => 1,
+            'customer' => 1,
+            'worker' => 1
+        ]];
 
-        $this->assertEquals(201, $response);
+        $response = $this->client->request('POST', '/api/v1/hires', $data);
+        $this->assertEquals(201, $response->getStatusCode());
     }
+
 
     public function testPut()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('PUT', '/api/v1/hires');
+        $data = ['json' => [
+            'id' => '1',
+            'startDate' => '01.09.2017',
+            'endDate' => '01.09.2017',
+            'status' => 0,
+            'cost' => 2800,
+            'car' => 1,
+            'point' => 1,
+            'customer' => 1,
+            'worker' => 1
+        ]];
 
-        $this->assertEquals(204, $response);
+        $response = $this->client->request('PUT', '/api/v1/hires/1', $data);
+        $this->assertEquals(204, $response->getStatusCode());
     }
 
 
     public function testPatch()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('PATCH', '/api/v1/hires');
+        $data = ['json' => [
+            'id' => '1',
+            'startDate' => '01.09.2017',
+            'endDate' => '01.09.2017',
+            'status' => 0,
+            'cost' => 2800,
+            'car' => 1,
+            'point' => 1,
+            'customer' => 1,
+            'worker' => 1
+        ]];
 
-        $this->assertEquals(204, $response);
+        $response = $this->client->request('PATCH', '/api/v1/hires/1', $data);
+        $this->assertEquals(204, $response->getStatusCode());
     }
+
 
     public function testDelete()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('DELETE', '/api/v1/hires');
-
-        $this->assertEquals(204, $response);
+        $response = $client->request('DELETE', '/api/v1/hires/1');
+        $this->assertEquals(204, $response->getStatusCode());
     }
 
     public function testGetByCar()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('GET', '/api/v1/hires');
-
-        $this->assertEquals(200, $response);
+        $response = $this->client->request('GET', '/api/v1/hires/1/by/car');
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testMarkAvgPoint()
     {
-        $client = new Client(['base_uri' => 'http://autocrm.loc/']);
-        $response = $client->request('GET', '/api/v1/hires');
+        $response = $this->client->request('GET', '/api/v1/hires/avgs/points/mark');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
 
-        $this->assertEquals(200, $response);
+    public function tearDown()
+    {
+        $this->client = null;
     }
 }
 
