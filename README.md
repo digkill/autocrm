@@ -1,5 +1,5 @@
 
-AutoCRM - Test for ER-Telecom company
+AutoCRM
 ========================
 
 Используемые технологии:
